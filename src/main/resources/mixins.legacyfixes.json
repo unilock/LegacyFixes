@@ -5,7 +5,12 @@
   "refmap": "mixins.legacyfixes.refmap.json",
   "target": "@env(DEFAULT)",
   "compatibilityLevel": "JAVA_8",
-  "mixins": [],
-  "client": [],
+  "mixins": [
+    "EntityLivingBaseAccessor",
+    "EntityLivingBaseMixin"
+  ],
+  "client": [
+    "client.GuiTextFieldMixin"
+  ],
   "server": []
 }
