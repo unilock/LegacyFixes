@@ -31,7 +31,7 @@ public abstract class GuiTextFieldMixin {
     public abstract void setText(String text);
 
     @Inject(method = "Lnet/minecraft/client/gui/GuiTextField;mouseClicked(III)V", at = @At(value = "HEAD"), cancellable = true)
-    private void mouseClicked(int mouseX, int mouseY, int button, CallbackInfo ci) {
+    private void legacyfixes$mouseClicked(int mouseX, int mouseY, int button, CallbackInfo ci) {
         if (!LegacyFixesConfig.rmbClear) return;
         if (button == 1 && this.visible && this.isEnabled && (this.isFocused || this.canLoseFocus) && (mouseX >= this.xPosition && mouseX < this.xPosition + this.width && mouseY >= this.yPosition && mouseY < this.yPosition + this.height)) {
             this.setText("");

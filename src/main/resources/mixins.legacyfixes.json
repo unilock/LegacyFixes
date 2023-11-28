@@ -8,8 +8,8 @@
   "mixins": [
     "BlockBedMixin",
     "BlockFarmlandMixin",
-    "EntityLivingBaseAccessor",
-    "EntityLivingBaseMixin"
+    "EntityLivingBaseMixin",
+    "EntityPlayerMixin"
   ],
   "client": [
     "client.GuiTextFieldMixin"
