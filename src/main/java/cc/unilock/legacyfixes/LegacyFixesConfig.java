@@ -6,6 +6,7 @@ import java.io.File;
 
 public class LegacyFixesConfig {
     public static boolean bedSpawnFix = true;
+    public static boolean doubleDoors = true;
     public static boolean jumpClimbing = true;
     public static boolean slideClimbing = false;
     public static boolean keepXP = false;
@@ -16,6 +17,7 @@ public class LegacyFixesConfig {
         Configuration configuration = new Configuration(configFile);
 
         bedSpawnFix = configuration.getBoolean("bedSpawnFix", Configuration.CATEGORY_GENERAL, bedSpawnFix, "Allows beds to set a player's spawn point during the day (as in 1.15+)");
+        doubleDoors = configuration.getBoolean("doubleDoors", Configuration.CATEGORY_GENERAL, doubleDoors, "Makes double doors open simultaneously");
         jumpClimbing = configuration.getBoolean("jumpClimbing", Configuration.CATEGORY_GENERAL, jumpClimbing, "Allows climbing ladders by jumping (incompat with slideClimbing)");
         slideClimbing = configuration.getBoolean("slideClimbing", Configuration.CATEGORY_GENERAL, slideClimbing, "Allows traversing ladders by looking up or down (incompat with jumpClimbing)");
         keepXP = configuration.getBoolean("keepXP", Configuration.CATEGORY_GENERAL, keepXP, "Players keep their experience level / points on death");
