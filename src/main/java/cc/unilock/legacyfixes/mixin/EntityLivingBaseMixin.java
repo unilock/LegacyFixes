@@ -34,9 +34,9 @@ public abstract class EntityLivingBaseMixin {
         if (LegacyFixesConfig.slideClimbing && !INSTANCE.isInWater() && !INSTANCE.handleLavaMovement() && INSTANCE.isOnLadder() && !INSTANCE.isSneaking() && this.isPlayer()) {
             if (INSTANCE.moveForward == 0) { // Not moving?
                 if (INSTANCE.rotationPitch < 0) { // Looking up?
-                    INSTANCE.motionY = this.calculateSpeed(INSTANCE.rotationPitch);
+                    INSTANCE.motionY = this.legacyfixes$calculateSpeed(INSTANCE.rotationPitch);
                 } else if (INSTANCE.rotationPitch > 0) { // Looking down?
-                    INSTANCE.motionY =  this.calculateSpeed(INSTANCE.rotationPitch) * -1.0;
+                    INSTANCE.motionY =  this.legacyfixes$calculateSpeed(INSTANCE.rotationPitch) * -1.0;
                 }
             }
         }
@@ -86,7 +86,7 @@ public abstract class EntityLivingBaseMixin {
     }
 
     @Unique
-    private double calculateSpeed(float pitch) {
+    private double legacyfixes$calculateSpeed(float pitch) {
         return Math.abs(pitch / 90.0) * 0.4;
     }
 }
