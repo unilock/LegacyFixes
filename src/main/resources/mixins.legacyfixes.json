@@ -12,7 +12,10 @@
     "EntityPlayerMixin"
   ],
   "client": [
-    "client.GuiTextFieldMixin"
+    "client.GuiTextFieldMixin",
+    "client.ItemEnchantedBookMixin",
+    "client.ItemStackMixin",
+    "client.NBTTagListAccessor"
   ],
   "server": []
 }
