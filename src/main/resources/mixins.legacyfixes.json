@@ -12,6 +12,8 @@
     "EntityPlayerMixin"
   ],
   "client": [
+    "client.FontRendererMixin",
+    "client.GuiNewChatMixin",
     "client.GuiTextFieldMixin",
     "client.ItemEnchantedBookMixin",
     "client.ItemStackMixin",
