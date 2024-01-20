@@ -9,7 +9,8 @@
     "BlockBedMixin",
     "BlockFarmlandMixin",
     "EntityLivingBaseMixin",
-    "EntityPlayerMixin"
+    "EntityPlayerMixin",
+    "ItemInWorldManagerMixin"
   ],
   "client": [
     "client.FontRendererMixin",

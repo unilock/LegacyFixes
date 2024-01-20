@@ -10,6 +10,7 @@ public class LegacyFixesConfig {
     public static boolean doubleDoors = true;
     public static boolean jumpClimbing = true;
     public static boolean keepXP = false;
+    public static boolean mc5694Fix = true;
     public static boolean nnbspFix = true;
     public static boolean noTrample = false;
     public static boolean rmbClear = true;
@@ -24,6 +25,7 @@ public class LegacyFixesConfig {
         doubleDoors = configuration.getBoolean("doubleDoors", Configuration.CATEGORY_GENERAL, doubleDoors, "Makes double doors open simultaneously");
         jumpClimbing = configuration.getBoolean("jumpClimbing", Configuration.CATEGORY_GENERAL, jumpClimbing, "Allows climbing ladders by jumping (incompat with slideClimbing)");
         keepXP = configuration.getBoolean("keepXP", Configuration.CATEGORY_GENERAL, keepXP, "Players keep their experience level / points on death");
+        mc5694Fix = configuration.getBoolean("mc5694Fix", Configuration.CATEGORY_GENERAL, mc5694Fix, "Fix MC-5694 (\"High efficiency tools / fast mining destroys some blocks client-side only\")");
         noTrample = configuration.getBoolean("noTrample", Configuration.CATEGORY_GENERAL, noTrample, "Prevents trampling farmland (completely)");
         nnbspFix = configuration.getBoolean("nnbspFix", Configuration.CATEGORY_GENERAL, nnbspFix, "Fixes the \"NNBSP\" character in DateFormat outputs in Java 20+, as in the singleplayer world selection menu");
         rmbClear = configuration.getBoolean("rmbClear", Configuration.CATEGORY_GENERAL, rmbClear, "Allows clearing text fields by right-clicking them");
