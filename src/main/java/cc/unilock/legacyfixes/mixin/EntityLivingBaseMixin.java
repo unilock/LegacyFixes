@@ -1,6 +1,8 @@
 package cc.unilock.legacyfixes.mixin;
 
 import cc.unilock.legacyfixes.LegacyFixesConfig;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import org.objectweb.asm.Opcodes;
@@ -9,22 +11,15 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(EntityLivingBase.class)
 public abstract class EntityLivingBaseMixin {
     @Shadow
-    protected EntityPlayer attackingPlayer;
-
-    @Shadow
     protected boolean isJumping;
 
     @Shadow
     protected abstract boolean isPlayer();
-
-    @Shadow
-    protected abstract int getExperiencePoints(EntityPlayer p_70693_1_);
 
     @Unique
     private final EntityLivingBase INSTANCE = (EntityLivingBase) (Object) this;
@@ -42,14 +37,14 @@ public abstract class EntityLivingBaseMixin {
         }
     }
 
-    @Redirect(method = "Lnet/minecraft/entity/EntityLivingBase;moveEntityWithHeading(FF)V", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/EntityLivingBase;isCollidedHorizontally:Z", opcode = Opcodes.GETFIELD, ordinal = 2))
-    private boolean legacyfixes$isCollidedHorizontally(EntityLivingBase instance) {
-        return instance.isCollidedHorizontally || (LegacyFixesConfig.jumpClimbing && this.isJumping);
+    @WrapOperation(method = "Lnet/minecraft/entity/EntityLivingBase;moveEntityWithHeading(FF)V", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/EntityLivingBase;isCollidedHorizontally:Z", opcode = Opcodes.GETFIELD, ordinal = 2))
+    private boolean legacyfixes$isCollidedHorizontally(EntityLivingBase instance, Operation<Boolean> original) {
+        return original.call(instance) || (LegacyFixesConfig.jumpClimbing && this.isJumping);
     }
 
-    @Redirect(method = "Lnet/minecraft/entity/EntityLivingBase;moveEntityWithHeading(FF)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/EntityLivingBase;isOnLadder()Z"))
-    private boolean legacyfixes$isOnLadder(EntityLivingBase instance) {
-        if (instance.isOnLadder()) {
+    @WrapOperation(method = "Lnet/minecraft/entity/EntityLivingBase;moveEntityWithHeading(FF)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/EntityLivingBase;isOnLadder()Z"))
+    private boolean legacyfixes$isOnLadder(EntityLivingBase instance, Operation<Boolean> original) {
+        if (original.call(instance)) {
             if (!LegacyFixesConfig.slideClimbing) return true;
 
             if (instance.motionX < -0.15) {
@@ -80,9 +75,9 @@ public abstract class EntityLivingBaseMixin {
         return false;
     }
 
-    @Redirect(method = "Lnet/minecraft/entity/EntityLivingBase;onDeathUpdate()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/EntityLivingBase;getExperiencePoints(Lnet/minecraft/entity/player/EntityPlayer;)I"))
-    private int legacyfixes$getExperiencePoints(EntityLivingBase instance, EntityPlayer p_70693_1_) {
-        return (LegacyFixesConfig.keepXP && this.isPlayer()) ? 0 : this.getExperiencePoints(this.attackingPlayer);
+    @WrapOperation(method = "Lnet/minecraft/entity/EntityLivingBase;onDeathUpdate()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/EntityLivingBase;getExperiencePoints(Lnet/minecraft/entity/player/EntityPlayer;)I"))
+    private int legacyfixes$getExperiencePoints(EntityLivingBase instance, EntityPlayer p_70693_1_, Operation<Integer> original) {
+        return (LegacyFixesConfig.keepXP && this.isPlayer()) ? 0 : original.call(instance, p_70693_1_);
     }
 
     @Unique
