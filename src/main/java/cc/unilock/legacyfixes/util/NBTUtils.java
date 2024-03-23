@@ -1,6 +1,6 @@
 package cc.unilock.legacyfixes.util;
 
-import cc.unilock.legacyfixes.mixin.client.NBTTagListAccessor;
+import cc.unilock.legacyfixes.mixin.client.accessor.NBTTagListAccessor;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;

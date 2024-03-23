@@ -10,7 +10,8 @@
     "BlockFarmlandMixin",
     "EntityLivingBaseMixin",
     "EntityPlayerMixin",
-    "ItemInWorldManagerMixin"
+    "ItemInWorldManagerMixin",
+    "accessor.EntityPlayerAccessor"
   ],
   "client": [
     "client.FontRendererMixin",
@@ -18,7 +19,7 @@
     "client.GuiTextFieldMixin",
     "client.ItemEnchantedBookMixin",
     "client.ItemStackMixin",
-    "client.NBTTagListAccessor"
+    "client.accessor.NBTTagListAccessor"
   ],
   "server": []
 }

@@ -1,4 +1,4 @@
-package cc.unilock.legacyfixes.mixin.client;
+package cc.unilock.legacyfixes.mixin.client.accessor;
 
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagList;
