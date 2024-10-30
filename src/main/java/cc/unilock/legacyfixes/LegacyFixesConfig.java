@@ -26,7 +26,7 @@ public class LegacyFixesConfig {
         bedSpawnFix = configuration.getBoolean("bedSpawnFix", Configuration.CATEGORY_GENERAL, bedSpawnFix, "Allows beds to set a player's spawn point during the day (as in 1.15+)");
         chatLinebreakFix = configuration.getBoolean("chatLinebreakFix", Configuration.CATEGORY_GENERAL, chatLinebreakFix, "Fixes line breaks in chat not rendering properly, but breaks certain formatting in fixed chat messages");
         doubleDoors = configuration.getBoolean("doubleDoors", Configuration.CATEGORY_GENERAL, doubleDoors, "Makes double doors open simultaneously");
-        hungerless = configuration.getBoolean("hungerless", Configuration.CATEGORY_GENERAL, hungerless, "Makes the hunger system always act as if the difficulty is set to Peaceful");
+        hungerless = configuration.getBoolean("hungerless", Configuration.CATEGORY_GENERAL, hungerless, "Makes the hunger system always act as if the difficulty is set to Peaceful (incompat with AppleCore)");
         jumpClimbing = configuration.getBoolean("jumpClimbing", Configuration.CATEGORY_GENERAL, jumpClimbing, "Allows climbing ladders by jumping (incompat with slideClimbing)");
         keepXP = configuration.getBoolean("keepXP", Configuration.CATEGORY_GENERAL, keepXP, "Players keep their experience level / points on death");
         mc5694Fix = configuration.getBoolean("mc5694Fix", Configuration.CATEGORY_GENERAL, mc5694Fix, "Try to fix MC-5694 (\"High efficiency tools / fast mining destroys some blocks client-side only\")");
