@@ -1,4 +1,4 @@
-package cc.unilock.legacyfixes.mixin.accessor;
+package cc.unilock.legacyfixes.mixin.early.bedSpawnFix;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChunkCoordinates;

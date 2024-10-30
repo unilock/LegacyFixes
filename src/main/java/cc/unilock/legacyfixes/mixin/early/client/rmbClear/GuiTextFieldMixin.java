@@ -1,4 +1,4 @@
-package cc.unilock.legacyfixes.mixin.client;
+package cc.unilock.legacyfixes.mixin.early.client.rmbClear;
 
 import cc.unilock.legacyfixes.LegacyFixesConfig;
 import net.minecraft.client.gui.GuiTextField;

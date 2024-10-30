@@ -1,7 +1,6 @@
-package cc.unilock.legacyfixes.mixin;
+package cc.unilock.legacyfixes.mixin.early.bedSpawnFix;
 
 import cc.unilock.legacyfixes.LegacyFixesConfig;
-import cc.unilock.legacyfixes.mixin.accessor.EntityPlayerAccessor;
 import net.minecraft.block.BlockBed;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentTranslation;

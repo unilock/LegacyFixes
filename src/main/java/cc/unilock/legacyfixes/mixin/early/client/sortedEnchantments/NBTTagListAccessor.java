@@ -1,4 +1,4 @@
-package cc.unilock.legacyfixes.mixin.client.accessor;
+package cc.unilock.legacyfixes.mixin.early.client.sortedEnchantments;
 
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagList;

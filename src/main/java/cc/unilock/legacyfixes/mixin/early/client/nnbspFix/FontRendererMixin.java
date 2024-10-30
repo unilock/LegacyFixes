@@ -1,4 +1,4 @@
-package cc.unilock.legacyfixes.mixin.client;
+package cc.unilock.legacyfixes.mixin.early.client.nnbspFix;
 
 import cc.unilock.legacyfixes.LegacyFixesConfig;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;

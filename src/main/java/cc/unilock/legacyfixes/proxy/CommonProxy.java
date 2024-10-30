@@ -8,8 +8,6 @@ import net.minecraftforge.common.MinecraftForge;
 
 public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
-        LegacyFixesConfig.synchronizeConfiguration(event.getSuggestedConfigurationFile());
-
         if (LegacyFixesConfig.doubleDoors) {
             MinecraftForge.EVENT_BUS.register(new DoubleDoorsModule());
         }

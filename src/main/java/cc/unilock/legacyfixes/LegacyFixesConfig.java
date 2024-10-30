@@ -1,43 +1,59 @@
 package cc.unilock.legacyfixes;
 
-import net.minecraftforge.common.config.Configuration;
+import com.gtnewhorizon.gtnhlib.config.Config;
 
-import java.io.File;
-
+@Config(modid = "legacyfixes")
+@Config.RequiresMcRestart
 public class LegacyFixesConfig {
-    public static boolean apatheticMobs = false;
-    public static boolean bedSpawnFix = true;
-    public static boolean chatLinebreakFix = false;
-    public static boolean doubleDoors = true;
-    public static boolean hungerless = false;
-    public static boolean jumpClimbing = true;
-    public static boolean keepXP = false;
-    public static boolean mc5694Fix = true;
-    public static boolean nnbspFix = true;
-    public static boolean noTrample = false;
-    public static boolean rmbClear = true;
-    public static boolean slideClimbing = false;
-    public static boolean sortedEnchantments = true;
+    @Config.Comment("Prevents mobs from attacking / targeting players")
+    @Config.DefaultBoolean(false)
+    public static boolean apatheticMobs;
 
-    public static void synchronizeConfiguration(File configFile) {
-        Configuration configuration = new Configuration(configFile);
+    @Config.Comment("Allows beds to set a player's spawn point during the day (as in 1.15+)")
+    @Config.DefaultBoolean(true)
+    public static boolean bedSpawnFix;
 
-        apatheticMobs = configuration.getBoolean("apatheticMobs", Configuration.CATEGORY_GENERAL, apatheticMobs, "Prevents mobs from attacking / targeting players");
-        bedSpawnFix = configuration.getBoolean("bedSpawnFix", Configuration.CATEGORY_GENERAL, bedSpawnFix, "Allows beds to set a player's spawn point during the day (as in 1.15+)");
-        chatLinebreakFix = configuration.getBoolean("chatLinebreakFix", Configuration.CATEGORY_GENERAL, chatLinebreakFix, "Fixes line breaks in chat not rendering properly, but breaks certain formatting in fixed chat messages");
-        doubleDoors = configuration.getBoolean("doubleDoors", Configuration.CATEGORY_GENERAL, doubleDoors, "Makes double doors open simultaneously");
-        hungerless = configuration.getBoolean("hungerless", Configuration.CATEGORY_GENERAL, hungerless, "Makes the hunger system always act as if the difficulty is set to Peaceful (incompat with AppleCore)");
-        jumpClimbing = configuration.getBoolean("jumpClimbing", Configuration.CATEGORY_GENERAL, jumpClimbing, "Allows climbing ladders by jumping (incompat with slideClimbing)");
-        keepXP = configuration.getBoolean("keepXP", Configuration.CATEGORY_GENERAL, keepXP, "Players keep their experience level / points on death");
-        mc5694Fix = configuration.getBoolean("mc5694Fix", Configuration.CATEGORY_GENERAL, mc5694Fix, "Try to fix MC-5694 (\"High efficiency tools / fast mining destroys some blocks client-side only\")");
-        noTrample = configuration.getBoolean("noTrample", Configuration.CATEGORY_GENERAL, noTrample, "Prevents trampling farmland (completely)");
-        nnbspFix = configuration.getBoolean("nnbspFix", Configuration.CATEGORY_GENERAL, nnbspFix, "Fixes the \"NNBSP\" character in DateFormat outputs in Java 20+, as in the singleplayer world selection menu");
-        rmbClear = configuration.getBoolean("rmbClear", Configuration.CATEGORY_GENERAL, rmbClear, "Allows clearing text fields by right-clicking them");
-        slideClimbing = configuration.getBoolean("slideClimbing", Configuration.CATEGORY_GENERAL, slideClimbing, "Allows traversing ladders by looking up or down (incompat with jumpClimbing)");
-        sortedEnchantments = configuration.getBoolean("sortedEnchantments", Configuration.CATEGORY_GENERAL, sortedEnchantments, "Sorts enchantments in item tooltips (alphabetically)");
+    @Config.Comment("Fixes line breaks in chat not rendering properly, but breaks certain formatting in fixed chat messages")
+    @Config.DefaultBoolean(false)
+    public static boolean chatLinebreakFix;
 
-        if (configuration.hasChanged()) {
-            configuration.save();
-        }
-    }
+    @Config.Comment("Makes double doors open simultaneously")
+    @Config.DefaultBoolean(true)
+    public static boolean doubleDoors;
+
+    @Config.Comment("Makes the hunger system always act as if the difficulty is set to Peaceful (incompat with AppleCore)")
+    @Config.DefaultBoolean(false)
+    public static boolean hungerless;
+
+    @Config.Comment("Allows climbing ladders by jumping (incompat with slideClimbing)")
+    @Config.DefaultBoolean(true)
+    public static boolean jumpClimbing;
+
+    @Config.Comment("Players keep their experience level / points on death")
+    @Config.DefaultBoolean(false)
+    public static boolean keepXP;
+
+    @Config.Comment("Try to fix MC-5694 (\"High efficiency tools / fast mining destroys some blocks client-side only\")")
+    @Config.DefaultBoolean(true)
+    public static boolean mc5694Fix;
+
+    @Config.Comment("Fixes the \"NNBSP\" character in DateFormat outputs in Java 20+, as in the singleplayer world selection menu")
+    @Config.DefaultBoolean(true)
+    public static boolean nnbspFix;
+
+    @Config.Comment("Prevents trampling farmland (completely)")
+    @Config.DefaultBoolean(false)
+    public static boolean noTrample;
+
+    @Config.Comment("Allows clearing text fields by right-clicking them")
+    @Config.DefaultBoolean(true)
+    public static boolean rmbClear;
+
+    @Config.Comment("Allows traversing ladders by looking up or down (incompat with jumpClimbing)")
+    @Config.DefaultBoolean(false)
+    public static boolean slideClimbing;
+
+    @Config.Comment("Sorts enchantments in item tooltips (alphabetically)")
+    @Config.DefaultBoolean(true)
+    public static boolean sortedEnchantments;
 }

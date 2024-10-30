@@ -7,7 +7,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = "legacyfixes", version = Tags.VERSION, name = "LegacyFixes", acceptedMinecraftVersions = "[1.7.10]")
+@Mod(modid = "legacyfixes", version = Tags.VERSION, name = "LegacyFixes", dependencies = "required-after:gtnhlib@[0.2.0,);")
 public class LegacyFixes {
     public static final Logger LOGGER = LogManager.getLogger("LegacyFixes");
 

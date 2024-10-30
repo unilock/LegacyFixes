@@ -1,4 +1,4 @@
-package cc.unilock.legacyfixes.mixin;
+package cc.unilock.legacyfixes.mixin.early.keepXP;
 
 import cc.unilock.legacyfixes.LegacyFixesConfig;
 import net.minecraft.entity.player.EntityPlayer;

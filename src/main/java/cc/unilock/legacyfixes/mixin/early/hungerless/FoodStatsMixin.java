@@ -1,4 +1,4 @@
-package cc.unilock.legacyfixes.mixin;
+package cc.unilock.legacyfixes.mixin.early.hungerless;
 
 import cc.unilock.legacyfixes.LegacyFixesConfig;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;

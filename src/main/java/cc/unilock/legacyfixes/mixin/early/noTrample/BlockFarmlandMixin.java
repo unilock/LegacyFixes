@@ -1,4 +1,4 @@
-package cc.unilock.legacyfixes.mixin;
+package cc.unilock.legacyfixes.mixin.early.noTrample;
 
 import cc.unilock.legacyfixes.LegacyFixesConfig;
 import net.minecraft.block.BlockFarmland;

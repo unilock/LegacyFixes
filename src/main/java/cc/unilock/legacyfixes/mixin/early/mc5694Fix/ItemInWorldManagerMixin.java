@@ -1,4 +1,4 @@
-package cc.unilock.legacyfixes.mixin;
+package cc.unilock.legacyfixes.mixin.early.mc5694Fix;
 
 import cc.unilock.legacyfixes.LegacyFixesConfig;
 import net.minecraft.network.play.server.S23PacketBlockChange;
