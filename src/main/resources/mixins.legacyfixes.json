@@ -8,6 +8,8 @@
   "mixins": [
     "BlockBedMixin",
     "BlockFarmlandMixin",
+    "EntityAITargetMixin",
+    "EntityCreatureMixin",
     "EntityLivingBaseMixin",
     "EntityPlayerMixin",
     "FoodStatsMixin",
