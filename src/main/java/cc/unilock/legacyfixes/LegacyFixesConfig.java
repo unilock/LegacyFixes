@@ -5,6 +5,7 @@ import net.minecraftforge.common.config.Configuration;
 import java.io.File;
 
 public class LegacyFixesConfig {
+    public static boolean apatheticMobs = false;
     public static boolean bedSpawnFix = true;
     public static boolean chatLinebreakFix = false;
     public static boolean doubleDoors = true;
@@ -20,6 +21,7 @@ public class LegacyFixesConfig {
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
 
+        apatheticMobs = configuration.getBoolean("apatheticMobs", Configuration.CATEGORY_GENERAL, apatheticMobs, "Prevents mobs from attacking / targeting players");
         bedSpawnFix = configuration.getBoolean("bedSpawnFix", Configuration.CATEGORY_GENERAL, bedSpawnFix, "Allows beds to set a player's spawn point during the day (as in 1.15+)");
         chatLinebreakFix = configuration.getBoolean("chatLinebreakFix", Configuration.CATEGORY_GENERAL, chatLinebreakFix, "Fixes line breaks in chat not rendering properly, but breaks certain formatting in fixed chat messages");
         doubleDoors = configuration.getBoolean("doubleDoors", Configuration.CATEGORY_GENERAL, doubleDoors, "Makes double doors open simultaneously");
