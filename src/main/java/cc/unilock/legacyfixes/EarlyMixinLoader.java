@@ -31,6 +31,7 @@ public class EarlyMixinLoader implements IFMLLoadingPlugin, IEarlyMixinLoader {
         List<String> mixins = new ArrayList<>();
 
         if (LegacyFixesConfig.apatheticMobs) {
+            mixins.add("apatheticMobs.EntityCreatureMultiMixin");
             mixins.add("apatheticMobs.EntityLivingMixin");
             mixins.add("apatheticMobs.EntityPigZombieMixin");
         }
