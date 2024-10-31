@@ -3,7 +3,6 @@ package cc.unilock.legacyfixes;
 import com.gtnewhorizon.gtnhlib.config.ConfigException;
 import com.gtnewhorizon.gtnhlib.config.ConfigurationManager;
 import com.gtnewhorizon.gtnhmixins.IEarlyMixinLoader;
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.FMLLaunchHandler;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 
@@ -40,7 +39,7 @@ public class EarlyMixinLoader implements IFMLLoadingPlugin, IEarlyMixinLoader {
             mixins.add("bedSpawnFix.EntityPlayerAccessor");
         }
         if (LegacyFixesConfig.hungerless) {
-            if (Loader.isModLoaded("AppleCore")) {
+            if (loadedCoreMods.contains("squeek.applecore.AppleCore")) {
                 LegacyFixes.LOGGER.error("LegacyFixes failed to enable hungerless with AppleCore installed!");
             } else {
                 mixins.add("hungerless.FoodStatsMixin");
