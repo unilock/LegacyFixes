@@ -1,6 +1,5 @@
 package cc.unilock.legacyfixes.mixin.early.slideClimbing;
 
-import cc.unilock.legacyfixes.LegacyFixesConfig;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.entity.EntityLivingBase;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,16 +16,14 @@ public abstract class EntityLivingBaseMixin {
 
     @Inject(method = "Lnet/minecraft/entity/EntityLivingBase;moveEntityWithHeading(FF)V", at = @At("TAIL"))
     private void legacyFixes$moveEntityWithHeading(float moveStrafing, float moveForward, CallbackInfo ci) {
-        if (LegacyFixesConfig.slideClimbing) {
-            EntityLivingBase instance = (EntityLivingBase) (Object) this;
+        EntityLivingBase instance = (EntityLivingBase) (Object) this;
 
-            if (!instance.isInWater() && !instance.handleLavaMovement() && instance.isOnLadder() && !instance.isSneaking() && this.isPlayer()) {
-                if (instance.moveForward == 0) { // Not moving?
-                    if (instance.rotationPitch < 0) { // Looking up?
-                        instance.motionY = this.legacyfixes$calculateSpeed(instance.rotationPitch);
-                    } else if (instance.rotationPitch > 0) { // Looking down?
-                        instance.motionY = this.legacyfixes$calculateSpeed(instance.rotationPitch) * -1.0;
-                    }
+        if (!instance.isInWater() && !instance.handleLavaMovement() && instance.isOnLadder() && !instance.isSneaking() && this.isPlayer()) {
+            if (instance.moveForward == 0) { // Not moving?
+                if (instance.rotationPitch < 0) { // Looking up?
+                    instance.motionY = this.legacyfixes$calculateSpeed(instance.rotationPitch);
+                } else if (instance.rotationPitch > 0) { // Looking down?
+                    instance.motionY = this.legacyfixes$calculateSpeed(instance.rotationPitch) * -1.0;
                 }
             }
         }
@@ -35,8 +32,6 @@ public abstract class EntityLivingBaseMixin {
     @ModifyExpressionValue(method = "Lnet/minecraft/entity/EntityLivingBase;moveEntityWithHeading(FF)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/EntityLivingBase;isOnLadder()Z"))
     private boolean legacyfixes$isOnLadder(boolean original) {
         if (original) {
-            if (!LegacyFixesConfig.slideClimbing) return true;
-
             EntityLivingBase instance = (EntityLivingBase) (Object) this;
 
             if (instance.motionX < -0.15) {

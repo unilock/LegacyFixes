@@ -1,6 +1,5 @@
 package cc.unilock.legacyfixes.mixin.early.client.rmbClear;
 
-import cc.unilock.legacyfixes.LegacyFixesConfig;
 import net.minecraft.client.gui.GuiTextField;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -32,7 +31,6 @@ public abstract class GuiTextFieldMixin {
 
     @Inject(method = "Lnet/minecraft/client/gui/GuiTextField;mouseClicked(III)V", at = @At(value = "HEAD"), cancellable = true)
     private void legacyfixes$mouseClicked(int mouseX, int mouseY, int button, CallbackInfo ci) {
-        if (!LegacyFixesConfig.rmbClear) return;
         if (button == 1 && this.visible && this.isEnabled && (this.isFocused || this.canLoseFocus) && (mouseX >= this.xPosition && mouseX < this.xPosition + this.width && mouseY >= this.yPosition && mouseY < this.yPosition + this.height)) {
             this.setText("");
             ci.cancel();

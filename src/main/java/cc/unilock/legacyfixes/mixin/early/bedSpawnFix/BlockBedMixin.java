@@ -1,6 +1,5 @@
 package cc.unilock.legacyfixes.mixin.early.bedSpawnFix;
 
-import cc.unilock.legacyfixes.LegacyFixesConfig;
 import net.minecraft.block.BlockBed;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentTranslation;
@@ -15,12 +14,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class BlockBedMixin {
     @Inject(method = "Lnet/minecraft/block/BlockBed;onBlockActivated(Lnet/minecraft/world/World;IIILnet/minecraft/entity/player/EntityPlayer;IFFF)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/EntityPlayer;sleepInBedAt(III)Lnet/minecraft/entity/player/EntityPlayer$EnumStatus;"))
     private void legacyfixes$onBlockActivated(World worldIn, int x, int y, int z, EntityPlayer player, int side, float subX, float subY, float subZ, CallbackInfoReturnable<Boolean> cir) {
-        if (LegacyFixesConfig.bedSpawnFix) {
-            ChunkCoordinates spawnChunk = new ChunkCoordinates(x, y, z);
-            if (!spawnChunk.equals(((EntityPlayerAccessor) player).getSpawnChunk())) {
-                player.setSpawnChunk(spawnChunk, false);
-                player.addChatComponentMessage(new ChatComponentTranslation("tile.bed.setSpawnChunk"));
-            }
+        ChunkCoordinates spawnChunk = new ChunkCoordinates(x, y, z);
+        if (!spawnChunk.equals(((EntityPlayerAccessor) player).getSpawnChunk())) {
+            player.setSpawnChunk(spawnChunk, false);
+            player.addChatComponentMessage(new ChatComponentTranslation("tile.bed.setSpawnChunk"));
         }
     }
 }

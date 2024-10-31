@@ -1,6 +1,5 @@
 package cc.unilock.legacyfixes.mixin.early.jumpClimbing;
 
-import cc.unilock.legacyfixes.LegacyFixesConfig;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.entity.EntityLivingBase;
 import org.objectweb.asm.Opcodes;
@@ -15,6 +14,6 @@ public abstract class EntityLivingBaseMixin {
 
     @ModifyExpressionValue(method = "Lnet/minecraft/entity/EntityLivingBase;moveEntityWithHeading(FF)V", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/EntityLivingBase;isCollidedHorizontally:Z", opcode = Opcodes.GETFIELD, ordinal = 2))
     private boolean legacyfixes$isCollidedHorizontally(boolean original) {
-        return original || (LegacyFixesConfig.jumpClimbing && this.isJumping);
+        return original || this.isJumping;
     }
 }
