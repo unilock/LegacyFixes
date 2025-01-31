@@ -62,6 +62,9 @@ public class EarlyMixinLoader implements IFMLLoadingPlugin, IEarlyMixinLoader {
         if (LegacyFixesConfig.mc5694Fix) {
             mixins.add("mc5694Fix.ItemInWorldManagerMixin");
         }
+        if (LegacyFixesConfig.mineWoodFix) {
+            mixins.add("mineWoodFix.EntityItemMixin");
+        }
         if (LegacyFixesConfig.noTrample) {
             mixins.add("noTrample.BlockFarmlandMixin");
         }

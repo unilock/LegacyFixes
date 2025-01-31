@@ -37,6 +37,10 @@ public class LegacyFixesConfig {
     @Config.DefaultBoolean(true)
     public static boolean mc5694Fix;
 
+    @Config.Comment("Grant the \"Getting Wood\" achievement for any log, including modded")
+    @Config.DefaultBoolean(true)
+    public static boolean mineWoodFix;
+
     @Config.Comment("Fixes the \"NNBSP\" character in DateFormat outputs in Java 20+, as in the singleplayer world selection menu")
     @Config.DefaultBoolean(true)
     public static boolean nnbspFix;
