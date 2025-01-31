@@ -18,7 +18,7 @@ public class EntityPlayerMixin {
     @Shadow
     public float experience;
 
-    @Inject(method = "Lnet/minecraft/entity/player/EntityPlayer;clonePlayer(Lnet/minecraft/entity/player/EntityPlayer;Z)V", at = @At("HEAD"))
+    @Inject(method = "clonePlayer(Lnet/minecraft/entity/player/EntityPlayer;Z)V", at = @At("HEAD"))
     private void legacyfixes$clonePlayer(EntityPlayer p_71049_1_, boolean p_71049_2_, CallbackInfo ci) {
         this.experienceLevel = p_71049_1_.experienceLevel;
         this.experienceTotal = p_71049_1_.experienceTotal;

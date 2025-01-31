@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(ItemStack.class)
 public class ItemStackMixin {
-    @ModifyReturnValue(method = "Lnet/minecraft/item/ItemStack;getEnchantmentTagList()Lnet/minecraft/nbt/NBTTagList;", at = @At("RETURN"))
+    @ModifyReturnValue(method = "getEnchantmentTagList()Lnet/minecraft/nbt/NBTTagList;", at = @At("RETURN"))
     private NBTTagList legacyfixes$getEnchantmentTagList(NBTTagList original) {
         return original == null ? null : NBTUtils.toListTag(NBTUtils.sort(original));
     }

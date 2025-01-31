@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(FoodStats.class)
 public class FoodStatsMixin {
-    @Redirect(method = "Lnet/minecraft/util/FoodStats;onUpdate(Lnet/minecraft/entity/player/EntityPlayer;)V", at = @At(value = "FIELD", target = "Lnet/minecraft/world/World;difficultySetting:Lnet/minecraft/world/EnumDifficulty;", opcode = Opcodes.GETFIELD), require = 0)
+    @Redirect(method = "onUpdate(Lnet/minecraft/entity/player/EntityPlayer;)V", at = @At(value = "FIELD", target = "Lnet/minecraft/world/World;difficultySetting:Lnet/minecraft/world/EnumDifficulty;", opcode = Opcodes.GETFIELD), require = 0)
     private EnumDifficulty legacyfixes$difficultySetting(World instance) {
         return EnumDifficulty.PEACEFUL;
     }

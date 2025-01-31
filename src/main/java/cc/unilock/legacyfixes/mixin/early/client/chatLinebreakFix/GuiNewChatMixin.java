@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(GuiNewChat.class)
 public class GuiNewChatMixin {
-    @WrapOperation(method = "Lnet/minecraft/client/gui/GuiNewChat;printChatMessage(Lnet/minecraft/util/IChatComponent;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiNewChat;printChatMessageWithOptionalDeletion(Lnet/minecraft/util/IChatComponent;I)V"))
+    @WrapOperation(method = "printChatMessage(Lnet/minecraft/util/IChatComponent;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiNewChat;printChatMessageWithOptionalDeletion(Lnet/minecraft/util/IChatComponent;I)V"))
     private void legacyfixes$printChatMessageWithOptionalDeletion(GuiNewChat instance, IChatComponent component, int chatLineID, Operation<Void> original) {
         if (component.getFormattedText().contains("\n")) {
             for (String msg : component.getFormattedText().split("\n")) {

@@ -14,7 +14,7 @@ public abstract class EntityLivingBaseMixin {
     @Shadow
     protected abstract boolean isPlayer();
 
-    @Inject(method = "Lnet/minecraft/entity/EntityLivingBase;moveEntityWithHeading(FF)V", at = @At("TAIL"))
+    @Inject(method = "moveEntityWithHeading(FF)V", at = @At("TAIL"))
     private void legacyFixes$moveEntityWithHeading(float moveStrafing, float moveForward, CallbackInfo ci) {
         EntityLivingBase instance = (EntityLivingBase) (Object) this;
 

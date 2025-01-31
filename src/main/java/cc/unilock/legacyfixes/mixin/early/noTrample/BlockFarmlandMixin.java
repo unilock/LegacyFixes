@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(BlockFarmland.class)
 public class BlockFarmlandMixin {
-    @Inject(method = "Lnet/minecraft/block/BlockFarmland;onFallenUpon(Lnet/minecraft/world/World;IIILnet/minecraft/entity/Entity;F)V", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "onFallenUpon(Lnet/minecraft/world/World;IIILnet/minecraft/entity/Entity;F)V", at = @At("HEAD"), cancellable = true)
     private void legacyfixes$onFallenUpon(World worldIn, int x, int y, int z, Entity entityIn, float fallDistance, CallbackInfo ci) {
         ci.cancel();
     }

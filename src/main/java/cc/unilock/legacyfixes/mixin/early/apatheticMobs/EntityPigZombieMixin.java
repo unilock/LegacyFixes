@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(EntityPigZombie.class)
 public class EntityPigZombieMixin {
-    @Inject(method = "Lnet/minecraft/entity/monster/EntityPigZombie;becomeAngryAt(Lnet/minecraft/entity/Entity;)V", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "becomeAngryAt(Lnet/minecraft/entity/Entity;)V", at = @At("HEAD"), cancellable = true)
     private void legacyfixes$becomeAngryAt(Entity p_70835_1_, CallbackInfo ci) {
         if (p_70835_1_ instanceof EntityPlayer) {
             ci.cancel();

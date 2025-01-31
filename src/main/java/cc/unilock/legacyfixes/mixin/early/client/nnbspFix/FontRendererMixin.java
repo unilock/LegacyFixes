@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(FontRenderer.class)
 public class FontRendererMixin {
-    @ModifyExpressionValue(method = "Lnet/minecraft/client/gui/FontRenderer;renderStringAtPos(Ljava/lang/String;Z)V", at = @At(value = "INVOKE", target = "Ljava/lang/String;charAt(I)C", ordinal = 0))
+    @ModifyExpressionValue(method = "renderStringAtPos(Ljava/lang/String;Z)V", at = @At(value = "INVOKE", target = "Ljava/lang/String;charAt(I)C", ordinal = 0))
     private char legacyfixes$charAt(char c) {
         if (c == '\u202F') c = ' '; // NARROW NO-BREAK SPACE
         return c;

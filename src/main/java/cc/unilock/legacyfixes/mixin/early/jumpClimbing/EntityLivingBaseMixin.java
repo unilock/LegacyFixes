@@ -12,7 +12,7 @@ public abstract class EntityLivingBaseMixin {
     @Shadow
     protected boolean isJumping;
 
-    @ModifyExpressionValue(method = "Lnet/minecraft/entity/EntityLivingBase;moveEntityWithHeading(FF)V", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/EntityLivingBase;isCollidedHorizontally:Z", opcode = Opcodes.GETFIELD, ordinal = 2))
+    @ModifyExpressionValue(method = "moveEntityWithHeading(FF)V", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/EntityLivingBase;isCollidedHorizontally:Z", opcode = Opcodes.GETFIELD, ordinal = 2))
     private boolean legacyfixes$isCollidedHorizontally(boolean original) {
         return original || this.isJumping;
     }
