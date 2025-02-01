@@ -31,10 +31,12 @@ public class EarlyMixinLoader implements IFMLLoadingPlugin, IEarlyMixinLoader {
         List<String> mixins = new ArrayList<>();
 
         if (LegacyFixesConfig.apatheticMobs) {
+            mixins.add("apatheticMobs.EntityCreatureMixin");
             mixins.add("apatheticMobs.EntityCreatureMultiMixin");
             mixins.add("apatheticMobs.EntityEndermanMixin");
             mixins.add("apatheticMobs.EntityLivingBaseMixin");
             mixins.add("apatheticMobs.EntityLivingMixin");
+            mixins.add("apatheticMobs.EntityMobMixin");
             mixins.add("apatheticMobs.EntityPigZombieMixin");
         }
         if (LegacyFixesConfig.bedSpawnFix) {

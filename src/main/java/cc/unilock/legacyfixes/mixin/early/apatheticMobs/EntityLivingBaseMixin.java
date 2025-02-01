@@ -1,5 +1,6 @@
 package cc.unilock.legacyfixes.mixin.early.apatheticMobs;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -12,6 +13,13 @@ public class EntityLivingBaseMixin {
     @Inject(method = "setRevengeTarget(Lnet/minecraft/entity/EntityLivingBase;)V", at = @At("HEAD"), cancellable = true)
     private void legacyfixes$setRevengeTarget(EntityLivingBase p_70604_1_, CallbackInfo ci) {
         if (p_70604_1_ instanceof EntityPlayer) {
+            ci.cancel();
+        }
+    }
+
+    @Inject(method = "setLastAttacker(Lnet/minecraft/entity/Entity;)V", at = @At("HEAD"), cancellable = true)
+    private void legacyfixes$setLastAttacked(Entity p_130011_1_, CallbackInfo ci) {
+        if (p_130011_1_ instanceof EntityPlayer) {
             ci.cancel();
         }
     }
