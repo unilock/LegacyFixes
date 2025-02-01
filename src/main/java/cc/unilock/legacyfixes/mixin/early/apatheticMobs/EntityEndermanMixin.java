@@ -22,7 +22,7 @@ public class EntityEndermanMixin {
         return !(source.getEntity() instanceof EntityPlayer);
     }
 
-    @WrapWithCondition(method = "attackEntityFrom(Lnet/minecraft/util/DamageSource;F)Z", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/monster/EntityEnderman;isAggressive:Z", opcode = Opcodes.PUTFIELD))
+    @WrapWithCondition(method = "attackEntityFrom(Lnet/minecraft/util/DamageSource;F)Z", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/monster/EntityEnderman;isAggressive:Z", opcode = Opcodes.PUTFIELD, ordinal = 0))
     private boolean legacyfixes$attackEntityFrom$isAggressive(EntityEnderman instance, boolean value, DamageSource source) {
         return !(source.getEntity() instanceof EntityPlayer);
     }
