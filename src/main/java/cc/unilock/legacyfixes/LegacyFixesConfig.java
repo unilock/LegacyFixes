@@ -60,4 +60,8 @@ public class LegacyFixesConfig {
     @Config.Comment("Sorts enchantments in item tooltips (alphabetically)")
     @Config.DefaultBoolean(true)
     public static boolean sortedEnchantments;
+
+    @Config.Comment("Prevents \"Too Expensive!\" from appearing in vanilla anvils, allowing very expensive enchanting or repairing")
+    @Config.DefaultBoolean(false)
+    public static boolean tooExpensive;
 }

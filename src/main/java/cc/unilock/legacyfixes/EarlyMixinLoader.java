@@ -74,6 +74,9 @@ public class EarlyMixinLoader implements IFMLLoadingPlugin, IEarlyMixinLoader {
                 mixins.add("slideClimbing.EntityLivingBaseMixin");
             }
         }
+        if (LegacyFixesConfig.tooExpensive) {
+            mixins.add("tooExpensive.ContainerRepairMixin");
+        }
 
         if (FMLLaunchHandler.side().isClient()) {
             if (LegacyFixesConfig.chatLinebreakFix) {
@@ -89,6 +92,9 @@ public class EarlyMixinLoader implements IFMLLoadingPlugin, IEarlyMixinLoader {
                 mixins.add("client.sortedEnchantments.ItemEnchantedBookMixin");
                 mixins.add("client.sortedEnchantments.ItemStackMixin");
                 mixins.add("client.sortedEnchantments.NBTTagListAccessor");
+            }
+            if (LegacyFixesConfig.tooExpensive) {
+                mixins.add("client.tooExpensive.GuiRepairMixin");
             }
         }
 
