@@ -64,4 +64,8 @@ public class LegacyFixesConfig {
     @Config.Comment("Prevents \"Too Expensive!\" from appearing in vanilla anvils, allowing very expensive enchanting or repairing")
     @Config.DefaultBoolean(false)
     public static boolean tooExpensive;
+
+    @Config.Comment("Shows the harvest level (tier) of a tool in its tooltip when holding SHIFT")
+    @Config.DefaultBoolean(false)
+    public static boolean tooltipTier;
 }

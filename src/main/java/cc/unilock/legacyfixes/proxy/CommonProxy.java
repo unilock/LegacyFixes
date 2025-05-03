@@ -4,6 +4,7 @@ import cc.unilock.legacyfixes.LegacyFixes;
 import cc.unilock.legacyfixes.LegacyFixesConfig;
 import cc.unilock.legacyfixes.module.DoubleDoorsModule;
 import cc.unilock.legacyfixes.module.MineWoodFixModule;
+import cc.unilock.legacyfixes.module.TooltipTierModule;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.event.FMLLoadCompleteEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -17,6 +18,9 @@ public class CommonProxy {
         }
         if (LegacyFixesConfig.mineWoodFix) {
             FMLCommonHandler.instance().bus().register(new MineWoodFixModule());
+        }
+        if (LegacyFixesConfig.tooltipTier) {
+            MinecraftForge.EVENT_BUS.register(new TooltipTierModule());
         }
     }
 
