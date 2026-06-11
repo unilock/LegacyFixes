@@ -39,17 +39,6 @@ public class EarlyMixinLoader implements IFMLLoadingPlugin, IEarlyMixinLoader {
             mixins.add("apatheticMobs.EntityMobMixin");
             mixins.add("apatheticMobs.EntityPigZombieMixin");
         }
-        if (LegacyFixesConfig.bedSpawnFix) {
-            mixins.add("bedSpawnFix.BlockBedMixin");
-            mixins.add("bedSpawnFix.EntityPlayerAccessor");
-        }
-        if (LegacyFixesConfig.hungerless) {
-            if (loadedCoreMods.contains("squeek.applecore.AppleCore")) {
-                LegacyFixes.LOGGER.error("LegacyFixes failed to enable hungerless with AppleCore installed!");
-            } else {
-                mixins.add("hungerless.FoodStatsMixin");
-            }
-        }
         if (LegacyFixesConfig.jumpClimbing) {
             if (LegacyFixesConfig.slideClimbing) {
                 LegacyFixes.LOGGER.error("LegacyFixes failed to enable jumpClimbing with slideClimbing enabled!");
@@ -60,9 +49,6 @@ public class EarlyMixinLoader implements IFMLLoadingPlugin, IEarlyMixinLoader {
         if (LegacyFixesConfig.keepXP) {
             mixins.add("keepXP.EntityLivingBaseMixin");
             mixins.add("keepXP.EntityPlayerMixin");
-        }
-        if (LegacyFixesConfig.mc5694Fix) {
-            mixins.add("mc5694Fix.ItemInWorldManagerMixin");
         }
         if (LegacyFixesConfig.noTrample) {
             mixins.add("noTrample.BlockFarmlandMixin");

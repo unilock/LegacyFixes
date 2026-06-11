@@ -9,10 +9,6 @@ public class LegacyFixesConfig {
     @Config.DefaultBoolean(false)
     public static boolean apatheticMobs;
 
-    @Config.Comment("Allows beds to set a player's spawn point during the day (as in 1.15+) [server]")
-    @Config.DefaultBoolean(true)
-    public static boolean bedSpawnFix;
-
     @Config.Comment("Fixes line breaks in chat not rendering properly, but breaks certain formatting in fixed chat messages [client]")
     @Config.DefaultBoolean(false)
     public static boolean chatLinebreakFix;
@@ -21,10 +17,6 @@ public class LegacyFixesConfig {
     @Config.DefaultBoolean(true)
     public static boolean doubleDoors;
 
-    @Config.Comment("Makes the hunger system always act as if the difficulty is set to Peaceful (incompat with AppleCore) [server]")
-    @Config.DefaultBoolean(false)
-    public static boolean hungerless;
-
     @Config.Comment("Allows climbing ladders by jumping (incompat with slideClimbing) [client]")
     @Config.DefaultBoolean(true)
     public static boolean jumpClimbing;
@@ -32,10 +24,6 @@ public class LegacyFixesConfig {
     @Config.Comment("Players keep their experience level / points on death [server]")
     @Config.DefaultBoolean(false)
     public static boolean keepXP;
-
-    @Config.Comment("Try to fix MC-5694 (\"High efficiency tools / fast mining destroys some blocks client-side only\") [server]")
-    @Config.DefaultBoolean(true)
-    public static boolean mc5694Fix;
 
     @Config.Comment("Grant the \"Getting Wood\" achievement for any log, including modded [server]")
     @Config.DefaultBoolean(true)
